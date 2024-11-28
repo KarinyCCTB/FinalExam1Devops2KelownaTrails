@@ -20,7 +20,7 @@ after(async () => {
 });
 
 describe('Kelowna Wine Trails and Tours - Group Discount Functionality', () => {
-    const baseUrl = 'http://3.85.13.56';
+    const baseUrl = 'http://35.172.128.251/FinalExam1Devops2KelownaTrails/index.html';
 
     it('should open the website and check the title', async () => {
         await driver.get(baseUrl);
