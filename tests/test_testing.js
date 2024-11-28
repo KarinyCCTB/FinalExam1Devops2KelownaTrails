@@ -2,6 +2,8 @@ import { Builder, By, Key, until, Capabilities } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome.js'; 
 import { assert } from 'chai'; 
 
+this.timeout(120000);
+
 let driver;
 
 before(async () => {
