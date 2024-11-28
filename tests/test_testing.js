@@ -2,12 +2,14 @@ import { Builder, By, Key, until, Capabilities } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome.js'; 
 import { assert } from 'chai';
 
-// Define the timeout for the entire suite in the test
-const TEST_TIMEOUT = 120000; // 2 minutes
+// Mocha global setup
+mocha.setup({
+  timeout: 120000 // Set global timeout for all tests
+});
 
 let driver;
 
-before(async () => {
+before(async function () {
     const options = new Options();
     options.addArguments('--headless');
     options.addArguments('window-size=1200x600');
@@ -18,24 +20,24 @@ before(async () => {
         .build();
 });
 
-after(async () => {
+after(async function () {
     await driver.quit();
 });
 
 describe('Kelowna Wine Trails and Tours - Group Discount Functionality', () => {
     const baseUrl = 'http://52.90.60.126/FinalExam1Devops2KelownaTrails/index.html';
 
-    it('should open the website and check the title', async () => {
-        // Explicit timeout in Mocha
-        this.timeout(TEST_TIMEOUT);
-
+    it('should open the website and check the title', async function () {
         await driver.get(baseUrl);
 
-        // Wait for an element to be loaded (e.g., the <body> tag)
-        await driver.wait(until.elementLocated(By.tagName('body')), 10000); // 10 seconds timeout
+        // Wait until the body tag is rendered to ensure the page has loaded
+        await driver.wait(until.elementLocated(By.tagName('body')), 10000);
 
+        // Get the title of the page
         const title = await driver.getTitle();
         console.log('Page title:', title);
+
+        // Assert the title of the page
         assert.strictEqual(title, 'DevOps Bonus Project - CCTB');
     });
 });
