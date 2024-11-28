@@ -1,0 +1,21 @@
+{
+  "name": "tests",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "test_prod1.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^5.1.2",
+    "chromedriver": "^131.0.1",
+    "selenium-webdriver": "^4.27.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.8.2"
+  }
+}
