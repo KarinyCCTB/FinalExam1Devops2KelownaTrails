@@ -2,11 +2,6 @@ import { Builder, By, Key, until, Capabilities } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome.js'; 
 import { assert } from 'chai';
 
-// Mocha global setup
-mocha.setup({
-  timeout: 120000 // Set global timeout for all tests
-});
-
 let driver;
 
 before(async function () {
